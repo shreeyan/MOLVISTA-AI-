@@ -1,0 +1,40 @@
+def main():
+    n = int(input().strip())
+    shuffled_word = input().strip()
+    shuffled_list = []
+    for _ in range(n):
+        shuffled_list.append(input().strip())
+    
+    original_word = input().strip()
+    original_list = []
+    for _ in range(n):
+        original_list.append(input().strip())
+        
+    mapping = {}
+    for idx, instruction in enumerate(original_list):
+        mapping[instruction] = idx
+        
+    arr = []
+    for instruction in shuffled_list:
+        arr.append(mapping[instruction])
+        
+    pos = [0] * n
+    for index, value in enumerate(arr):
+        pos[value] = index
+        
+    max_chain = 1
+    current_chain = 1
+    for i in range(1, n):
+        if pos[i] > pos[i-1]:
+            current_chain += 1
+        else:
+            if current_chain > max_chain:
+                max_chain = current_chain
+            current_chain = 1
+    if current_chain > max_chain:
+        max_chain = current_chain
+        
+    print(n - max_chain)
+
+if __name__ == "__main__":
+    main()
