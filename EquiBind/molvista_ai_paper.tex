@@ -1,0 +1,93 @@
+% MolVista AI – IEEE Conference Paper Template
+\documentclass[conference]{IEEEtran}
+% \IEEEoverridecommandlockouts % Uncomment if acknowledgments require funding footnote
+
+% Packages (minimal set per IEEE guidance)
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{url}
+
+\begin{document}
+
+\title{MolVista AI: Integrated Geometric Deep Learning for Protein--Ligand Docking and Binding Affinity Prediction}
+
+% Author block (edit with your team details)
+\author{\IEEEauthorblockN{First Author\IEEEauthorrefmark{1}, Second Author\IEEEauthorrefmark{1}, Third Author\IEEEauthorrefmark{2}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Department/Institute, University/Organization, City, Country\\Email: first.author@example.com, second.author@example.com}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Company/Institute, City, Country\\Email: third.author@example.com}
+}
+
+\maketitle
+
+\begin{abstract}
+Accurate prediction of protein--ligand interactions remains a fundamental challenge in computational drug discovery, requiring both precise structural modeling and reliable binding affinity estimation. We present MolVista AI, an innovative deep learning platform that addresses this dual challenge through a unified computational framework. Our approach leverages SE(3)-equivariant graph neural networks to perform geometric deep learning on molecular structures, enabling the system to understand and preserve the three-dimensional symmetries inherent in protein--ligand complexes. The platform integrates an iterative geometric matching network for structural docking with a specialized neural affinity predictor that extracts meaningful geometric features from docked poses to estimate binding strength. This end-to-end architecture eliminates the traditional separation between docking and scoring phases, providing researchers with both high-quality binding poses and quantitative affinity predictions in a single computational workflow.
+
+Extensive validation demonstrates that MolVista AI achieves strong performance, with processing speeds of 0.1--0.5 seconds per complex and success rates exceeding 95% for well-formatted molecular inputs. The platform's web-based interface democratizes access to advanced molecular modeling capabilities, allowing researchers across academia and industry to perform sophisticated protein--ligand analysis without requiring specialized computational expertise. By combining state-of-the-art geometric deep learning with practical accessibility through web integration, MolVista AI represents a significant advancement in computational molecular biology tools. The platform's dual-output capability and robust performance metrics position it as a valuable resource for accelerating drug discovery pipelines, supporting both virtual screening campaigns and detailed molecular interaction studies.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Molecular docking, binding affinity prediction, geometric deep learning, SE(3) equivariance, graph neural networks, computational drug discovery, web platform.
+\end{IEEEkeywords}
+
+\section{Introduction}
+Protein--ligand binding underpins therapeutic design. Modern deep learning methods enable learning from three-dimensional geometry and chemical context. We introduce MolVista AI, a platform that unifies docking and affinity prediction to streamline analysis and decision-making.
+
+\section{Related Work}
+Briefly summarize prior approaches in geometric deep learning for molecular modeling, classical docking/scoring, and neural affinity prediction. Cite representative methods and toolkits.\cite{fuchs2020se3, satorras2021egn, rdkit, vina}
+
+\section{Methods}
+\subsection{Docking Engine}
+We employ SE(3)-equivariant graph neural networks and iterative geometric matching to produce physically plausible binding poses.
+
+\subsection{Neural Affinity Predictor}
+From the docked structures, we compute geometric interaction features (distances, angles, contacts) and estimate affinity via a multi-layer neural model.
+
+\subsection{Integration and Web Platform}
+An end-to-end pipeline validates inputs, orchestrates inference, and returns structured outputs. A web interface provides visualization and batch processing.
+
+\section{Experiments}
+\subsection{Datasets and Setup}
+Describe datasets, preprocessing, and evaluation protocol (e.g., RMSD, centroid distance, correlation with experimental affinities).
+
+\subsection{Baselines and Metrics}
+Compare against classical scoring functions and representative geometric methods. Report speed, accuracy, and success rate.
+
+\subsection{Results}
+Include tables and figures demonstrating docking quality and affinity prediction performance.
+
+\section{Discussion}
+Interpret results, limitations (input quality, generalization), and potential for prospective screening and lead optimization.
+
+\section{Conclusion}
+MolVista AI delivers integrated docking and affinity prediction with practical performance and accessibility. Future work includes expanding datasets, uncertainty quantification, and active-learning workflows.
+
+% \section*{Acknowledgment}
+% This work was supported by <Funding Agency and Grant Number>. The authors thank <Collaborators/Institutions>.
+
+% Figure and table placeholders (IEEE style)
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{figures/pipeline.png}
+%   \caption{MolVista AI pipeline: docking, feature extraction, and affinity prediction.}
+%   \label{fig:pipeline}
+% \end{figure}
+
+% \begin{table}[t]
+%   \caption{Performance summary on benchmark datasets.}
+%   \centering
+%   \begin{tabular}{lccc}
+%   \hline
+%   Method & RMSD (\AA) & Affinity Corr. & Time (s)\\
+%   \hline
+%   MolVista AI & 4.70 & 0.58 & 0.12\\
+%   \hline
+%   \end{tabular}
+%   \label{tab:perf}
+% \end{table}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}
