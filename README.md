@@ -1,4 +1,4 @@
-# EquiBind Production Usage
+# EquiBind Production Usage:
 
 This guide covers environment setup, running inference on a dataset, and where outputs are saved.
 
